@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>사업분야 | 조유시스템</title>
+
+  <style>
+    /* ===== 기본 ===== */
+    body{
+      margin:0;
+      font-family:'Segoe UI','Pretendard',sans-serif;
+      color:#222;
+      background:#f5f7fa;
+      padding-top:64px;
+    }
+
+    /* ===== Header (index 기준 통일) ===== */
+    header{
+      background:#0b2a4a;
+      color:#fff;
+      padding:0 40px;
+      height:64px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      box-sizing:border-box;
+      position:fixed;
+      top:0; left:0;
+      width:100%;
+      z-index:1000;
+    }
+
+    header h1{
+      margin:0;
+      font-size:0;       /* ✅ 글자 높이 영향 제거 */
+      line-height:1;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:0;
+    }
+
+    .brand img{
+      width:60px;
+      height:60px;
+      object-fit:contain;
+      transform:translateY(2px);
+      display:block;
+    }
+
+    .brand span{
+      font-size:22px;
+      font-weight:700;
+      line-height:1;
+      display:block;
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+    }
+
+    nav a{
+      color:#fff;
+      margin-left:20px;
+      text-decoration:none;
+      font-size:14px;
+      padding-bottom:6px;
+      display:inline-block;
+    }
+
+    nav a.active{
+      border-bottom:3px solid #fff;
+    }
+
+    /* ===== Banner ===== */
+    .banner{
+      background:
+        linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+        url('img/business_banner.jpg');
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+
+      min-height:65vh;
+      padding:0 40px;
+      color:#fff;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+    }
+
+    .banner-inner{
+      max-width:1200px;
+      width:100%;
+      margin:0 auto;
+    }
+
+    .banner h2{
+      font-size:44px;
+      margin:0;
+      text-shadow:0 2px 6px rgba(0,0,0,0.4);
+    }
+
+    /* ===== Section ===== */
+    .section{ padding:80px 40px; }
+
+    .section-inner{
+      background:#fff;
+      padding:60px;
+      border-radius:14px;
+      max-width:1200px;
+      margin:0 auto;
+      box-shadow:0 12px 30px rgba(0,0,0,0.08);
+    }
+
+    .section h3{
+      font-size:28px;
+      margin:0 0 50px;
+      color:#0b2a4a;
+      position:relative;
+      padding-bottom:14px;
+    }
+
+    .section h3::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:0;
+      width:56px;
+      height:3px;
+      background:#0b2a4a;
+      border-radius:2px;
+    }
+
+    /* ===== 지그재그 사업 영역 ===== */
+    .biz-wrap{
+      display:flex;
+      flex-direction:column;
+      gap:90px;
+    }
+
+    .biz-row{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:60px;
+      align-items:center;
+    }
+
+    .biz-row.reverse .biz-media{ order:2; }
+    .biz-row.reverse .biz-text{ order:1; }
+
+    .biz-media{
+      border-radius:16px;
+      overflow:hidden;
+      box-shadow:0 10px 26px rgba(0,0,0,0.10);
+      background:#e9edf3;
+    }
+
+    .biz-media img{
+      width:100%;
+      height:360px;
+      object-fit:cover;
+      display:block;
+      transform:scale(1.01);
+      transition:transform .65s ease;
+    }
+
+    .biz-media:hover img{
+      transform:scale(1.08);
+    }
+
+    .biz-text h4{
+      margin:0 0 14px;
+      font-size:24px;
+      color:#0b2a4a;
+      line-height:1.25;
+    }
+
+    .biz-text p{
+      margin:0;
+      font-size:15px;
+      line-height:1.9;
+      color:#333;
+      max-width:520px;
+    }
+
+    /* ===== Footer ===== */
+    footer{
+      background:#111;
+      color:#aaa;
+      padding:40px;
+      font-size:14px;
+    }
+
+    footer strong{ color:#fff; }
+
+    /* ===== Responsive ===== */
+    @media(max-width:900px){
+      .biz-row{
+        grid-template-columns:1fr;
+        gap:28px;
+      }
+      .biz-row.reverse .biz-media,
+      .biz-row.reverse .biz-text{ order:unset; }
+      .biz-media img{ height:280px; }
+      .biz-text p{ max-width:100%; }
+    }
+
+    @media(max-width:768px){
+      header{ padding:0 20px; }
+
+      .banner{
+        min-height:45vh;
+        padding:0 20px;
+      }
+
+      .banner h2{ font-size:32px; }
+
+      .section{ padding:50px 20px; }
+      .section-inner{ padding:30px; }
+
+      .biz-wrap{ gap:60px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1 class="brand">
+    <img src="img/mark.png" alt="조유시스템 로고">
+    <span>조유시스템</span>
+  </h1>
+
+  <nav>
+    <a href="index.html">홈</a>
+    <a href="about.html">회사소개</a>
+    <a href="business.html" class="active">사업분야</a>
+    <a href="tech.html">핵심기술</a>
+    <a href="project.html">주요실적</a>
+    <a href="contact.html">문의</a>
+  </nav>
+</header>
+
+<section class="banner">
+  <div class="banner-inner">
+    <h2>사업분야</h2>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner">
+    <h3>주요 사업 영역</h3>
+
+    <div class="biz-wrap">
+
+      <div class="biz-row">
+        <div class="biz-media">
+          <img src="img/business_fa.jpg" alt="FA 자동화 제어">
+        </div>
+        <div class="biz-text">
+          <h4>FA 자동화 제어</h4>
+          <p>
+            생산 설비 및 공정 자동화를 위한 전기·제어 시스템을 설계합니다.
+            현장 환경과 공정 특성에 최적화된 안정적인 제어 솔루션을 제공합니다.
+          </p>
+        </div>
+      </div>
+
+      <div class="biz-row reverse">
+        <div class="biz-media">
+          <img src="img/business_plc.jpg" alt="PLC / HMI 설계">
+        </div>
+        <div class="biz-text">
+          <h4>PLC / HMI 설계</h4>
+          <p>
+            Siemens, Mitsubishi, LS 등 다양한 플랫폼 기반의 제어 프로그램을 구축하고
+            직관적인 HMI 화면으로 운영 효율을 극대화합니다.
+          </p>
+        </div>
+      </div>
+
+      <div class="biz-row">
+        <div class="biz-media">
+          <img src="img/business_logistics.jpg" alt="물류 제어 시스템">
+        </div>
+        <div class="biz-text">
+          <h4>물류 제어 시스템</h4>
+          <p>
+            자동창고, 자동 분류, 배터리 물류 등 다양한 물류 라인의
+            이송·제어·운영을 통합적으로 지원합니다.
+          </p>
+        </div>
+      </div>
+
+      <div class="biz-row reverse">
+        <div class="biz-media">
+          <img src="img/business_electric.jpg" alt="전기 공사">
+        </div>
+        <div class="biz-text">
+          <h4>전기 공사</h4>
+          <p>
+            판넬 제작부터 현장 설치, 시운전 및 유지보수까지
+            안전 기준에 맞춘 체계적인 전기 공사를 수행합니다.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <strong>㈜ 조유시스템</strong><br>
+  인천광역시 서구 가정로 37번길 37-22<br>
+  TEL. 032-471-1101 | FAX. 032-462-1102
+</footer>
+
+</body>
+</html>

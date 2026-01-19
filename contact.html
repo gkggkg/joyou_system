@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>문의 / 오시는 길 | 조유시스템</title>
+  <style>
+    /* ===== 기본 ===== */
+    body{
+      margin:0;
+      font-family:'Segoe UI','Pretendard',sans-serif;
+      background:#f5f7fa;
+      color:#222;
+      padding-top:64px; /* ✅ 고정 헤더 보정 */
+    }
+
+    /* ===== Header ===== */
+    header{
+      background:#0b2a4a;
+      color:#fff;
+      padding:0 40px;
+      height:64px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      box-sizing:border-box;
+
+      position:fixed;
+      top:0; left:0;
+      width:100%;
+      z-index:1000;
+    }
+
+    header h1{
+      margin:0;
+      font-size:22px;
+      line-height:1;
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+    }
+
+    nav a,
+    nav a:visited{
+      color:#fff;
+      margin-left:20px;
+      text-decoration:none;
+      font-size:14px;
+      padding-bottom:6px;
+      display:inline-block;
+    }
+
+    nav a.active{
+      border-bottom:3px solid #ffffff;
+    }
+
+    /* ===== Banner (전체 페이지 통일 규격) ===== */
+    .banner{
+      background:
+        linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+        url('img/contact_banner.jpg'); /* ✅ 여기만 네 이미지 파일명으로 바꿔줘 */
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+
+      min-height:65vh; /* ✅ 회사소개/사업분야/핵심기술/주요실적과 통일 */
+      padding:0 40px;
+      color:#fff;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .banner-inner{
+      max-width:1200px;
+      width:100%;
+      margin:0 auto;
+      text-align:center;
+    }
+
+    .banner h2{
+      font-size:44px;
+      margin:0;
+      text-shadow:0 2px 6px rgba(0,0,0,0.4);
+    }
+
+    /* ===== Section ===== */
+    .section{ padding:80px 40px; }
+
+    .section-inner{
+      background:#ffffff;
+      padding:60px;
+      border-radius:12px;
+      max-width:1200px;
+      margin:0 auto;
+      box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .section h3{
+      font-size:28px;
+      margin:0 0 30px;
+      color:#0b2a4a;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:40px;
+      align-items:start;
+    }
+
+    .info p{
+      margin:10px 0;
+      font-size:15px;
+      line-height:1.7;
+    }
+
+    .map{
+      width:100%;
+      height:360px;
+      border-radius:10px;
+      overflow:hidden;
+    }
+
+    /* 카카오 지도 하단 정보 숨김 */
+    .root_daum_roughmap .wrap_controllers,
+    .root_daum_roughmap .wrap_info{
+      display:none !important;
+    }
+
+    /* ===== Footer ===== */
+    footer{
+      background:#111;
+      color:#aaa;
+      padding:40px;
+      font-size:14px;
+    }
+    footer strong{ color:#fff; }
+
+    /* ===== Responsive ===== */
+    @media(max-width:900px){
+      .grid{ grid-template-columns:1fr; }
+    }
+
+    @media(max-width:768px){
+      header{ padding:0 20px; }
+
+      .banner{
+        min-height:45vh; /* ✅ 통일 모바일 높이 */
+        padding:0 20px;
+      }
+      .banner h2{
+        font-size:32px;
+      }
+
+      .section{ padding:50px 20px; }
+      .section-inner{ padding:30px; }
+    }
+     /* ===== 헤더 로고 ===== */
+header h1{
+  margin:0;
+  font-size:0;
+  line-height:1;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:0;
+}
+
+.brand img{
+  width:60px;
+  height:60px;
+  object-fit:contain;
+  transform: translateY(2px);
+  display:block;
+}
+
+.brand span{
+  font-size:22px;
+  font-weight:700;
+  line-height:1;
+  display:block;
+}
+
+
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1 class="brand">
+  <img src="img/mark.png" alt="조유시스템 로고">
+  <span>조유시스템</span>
+</h1>
+
+  <nav>
+    <a href="index.html">홈</a>
+    <a href="about.html">회사소개</a>
+    <a href="business.html">사업분야</a>
+    <a href="tech.html">핵심기술</a>
+    <a href="project.html">주요실적</a>
+    <a href="contact.html" class="active">문의</a>
+  </nav>
+</header>
+
+<!-- ✅ 배너 (가운데 정렬 + 이미지 배경) -->
+<section class="banner">
+  <div class="banner-inner">
+    <h2>문의 / 오시는 길</h2>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner">
+    <div class="grid">
+
+      <!-- 연락처 -->
+      <div class="info">
+        <h3>연락처 안내</h3>
+        <p><strong>회사명</strong> : ㈜ 조유시스템</p>
+        <p><strong>주소</strong> : 인천광역시 서구 가정로 37번길 37-22</p>
+        <p><strong>전화</strong> : 032-471-1101</p>
+        <p><strong>팩스</strong> : 032-462-1102</p>
+        <p><strong>이메일</strong> : joyou@joyou.co.kr</p>
+      </div>
+
+      <!-- 지도 -->
+      <div>
+        <h3>오시는 길</h3>
+        <div class="map">
+          <div id="daumRoughmapContainer1768199535933"
+               class="root_daum_roughmap root_daum_roughmap_landing"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 카카오 지도 스크립트 -->
+<script charset="UTF-8" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+<script charset="UTF-8">
+  new daum.roughmap.Lander({
+    "timestamp" : "1768199535933",
+    "key" : "fhjuh7fpdij",
+    "mapWidth" : "640",
+    "mapHeight" : "360"
+  }).render();
+</script>
+
+<footer>
+  <strong>㈜ 조유시스템</strong><br>
+  인천광역시 서구 가정로 37번길 37-22<br>
+  TEL. 032-471-1101 | FAX. 032-462-1102
+</footer>
+
+</body>
+</html>

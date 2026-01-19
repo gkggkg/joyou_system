@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>핵심기술 | 조유시스템</title>
+
+  <style>
+   body {
+  margin: 0;
+  font-family: 'Segoe UI', 'Pretendard', sans-serif;
+  background: #f5f7fa;
+  color: #222;
+  padding-top: 64px; /* ✅ fixed 헤더 높이만큼 보정 */
+}
+
+
+    /* ===== HEADER ===== */
+    header {
+      background: #0b2a4a;
+      color: #fff;
+      padding: 0 40px;
+      height: 64px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-sizing: border-box;
+
+      position: fixed;     /* 🔥 고정 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    nav a,
+    nav a:visited {
+      color: #fff;
+      margin-left: 20px;
+      text-decoration: none;
+      font-size: 14px;
+      padding-bottom: 6px;
+      display: inline-block;
+    }
+
+    nav a.active {
+      border-bottom: 3px solid #ffffff;
+    }
+
+    /* ===== BANNER ===== */
+    /* ===== BANNER (회사소개/사업분야와 동일) ===== */
+/* ===== BANNER (회사소개 / 사업분야 / 주요실적과 통일) ===== */
+.banner{
+  background:
+    linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+    url('img/tech_banner.jpg'); /* 네가 정한 이미지 */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  min-height: 65vh;          /* ✅ 핵심: 높이 통일 */
+  padding: 0 40px;
+  color: #fff;
+
+  display: flex;             /* ✅ 가운데 정렬 */
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-inner{
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.banner h2{
+  font-size: 44px;
+  margin: 0;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+/* 모바일 */
+@media (max-width: 768px){
+  .banner{
+    min-height: 45vh;
+    padding: 0 20px;
+  }
+
+  .banner h2{
+    font-size: 32px;
+  }
+}
+
+
+
+    /* ===== SECTION ===== */
+    .section {
+      padding: 80px 40px;
+    }
+
+    .section-inner {
+      background: #ffffff;
+      padding: 60px;
+      border-radius: 12px;
+      max-width: 1200px;
+      margin: 0 auto;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .section h3 {
+      font-size: 28px;
+      margin: 0 0 30px;
+      color: #0b2a4a;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: #f0f3f7;
+      padding: 30px;
+      border-radius: 10px;
+    }
+
+    .card h4 {
+      margin: 0 0 12px;
+      font-size: 20px;
+      color: #0b2a4a;
+    }
+
+    .card ul {
+      margin: 0;
+      padding-left: 18px;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #111;
+      color: #aaa;
+      padding: 40px;
+      font-size: 14px;
+    }
+
+    footer strong {
+      color: #fff;
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        padding: 50px 20px;
+      }
+      .section-inner {
+        padding: 30px;
+      }
+    }
+    /* ===== Process 지그재그 레이아웃 ===== */
+.process-wrap{
+  display:flex;
+  flex-direction:column;
+  gap:90px;
+}
+
+.process-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
+}
+
+.process-row.reverse .process-media{ order:2; }
+.process-row.reverse .process-text{ order:1; }
+
+.process-media{
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 10px 26px rgba(0,0,0,0.10);
+  background:#e9edf3;
+}
+
+.process-media img{
+  width:100%;
+  height:360px;
+  object-fit:cover;
+  display:block;
+  transform:scale(1.01);
+  transition:transform .6s ease;
+}
+
+/* Hover */
+.process-media:hover img{
+  transform:scale(1.08);
+}
+
+.process-text h4{
+  margin:0 0 14px;
+  font-size:24px;
+  color:#0b2a4a;
+  line-height:1.3;
+}
+
+.process-text p{
+  margin:0;
+  font-size:15px;
+  line-height:1.9;
+  color:#333;
+  max-width:520px;
+}
+
+/* 모바일 */
+@media(max-width:900px){
+  .process-row{
+    grid-template-columns:1fr;
+    gap:28px;
+  }
+  .process-row.reverse .process-media,
+  .process-row.reverse .process-text{
+    order:unset;
+  }
+  .process-media img{
+    height:280px;
+  }
+  .process-text p{
+    max-width:100%;
+  }
+}
+ /* ===== 헤더 로고 ===== */
+header h1{
+  margin:0;
+  font-size:0;
+  line-height:1;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:0;
+}
+
+.brand img{
+  width:60px;
+  height:60px;
+  object-fit:contain;
+  transform: translateY(2px);
+  display:block;
+}
+
+.brand span{
+  font-size:22px;
+  font-weight:700;
+  line-height:1;
+  display:block;
+}
+
+
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <h1 class="brand">
+  <img src="img/mark.png" alt="조유시스템 로고">
+  <span>조유시스템</span>
+</h1>
+
+  <nav>
+    <a href="index.html">홈</a>
+    <a href="about.html">회사소개</a>
+    <a href="business.html">사업분야</a>
+    <a href="tech.html" class="active">핵심기술</a>
+    <a href="project.html">주요실적</a>
+    <a href="contact.html">문의</a>
+  </nav>
+</header>
+
+<!-- BANNER -->
+<section class="banner">
+  <div class="banner-inner">
+    <h2>핵심기술</h2>
+  </div>
+</section>
+
+
+<!-- PROCESS 기술 -->
+<!-- PROCESS 기술 -->
+<section class="section">
+  <div class="section-inner">
+    <h3>Process 기술</h3>
+
+    <div class="process-wrap">
+
+      <!-- 1) 사진 - 설명 -->
+      <div class="process-row">
+        <div class="process-media">
+          <img src="img/process_auto.jpg" alt="자동차 공정 자동화">
+        </div>
+        <div class="process-text">
+          <h4>자동차 공정 자동화</h4>
+          <p>
+            자동차 의장, 차체, 도장 공정을 중심으로 생산 설비의 자동화 제어 시스템을 구축합니다.
+            공정 특성과 현장 환경을 고려한 안정적인 제어를 제공합니다.
+          </p>
+        </div>
+      </div>
+
+      <!-- 2) 설명 - 사진 -->
+      <div class="process-row reverse">
+        <div class="process-media">
+          <img src="img/process_logistics.jpg" alt="물류 · 저장 시스템">
+        </div>
+        <div class="process-text">
+          <h4>물류 · 저장 시스템</h4>
+          <p>
+            자동창고(AS/RS), 물류센터 자동 분류 및 이송, 배터리 물류 라인 등
+            다양한 물류 시스템을 통합적으로 제어하고 운영 효율을 극대화합니다.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- PRODUCT 기술 -->
+<!-- PRODUCT 기술 -->
+<section class="section">
+  <div class="section-inner">
+    <h3>Product 기술</h3>
+
+    <div class="process-wrap">
+
+      <!-- 1) 사진 - 설명 -->
+      <div class="process-row">
+        <div class="process-media">
+          <img src="img/product_panel.jpg" alt="제어 Panel">
+        </div>
+        <div class="process-text">
+          <h4>제어 Panel</h4>
+          <p>
+            PLC PANEL, OP PANEL, RTB BOX, EMS PANEL 등
+            다양한 산업 환경에 맞춘 제어반을 설계·제작합니다.
+            안정성과 유지보수를 고려한 표준화된 구성을 제공합니다.
+          </p>
+        </div>
+      </div>
+
+      <!-- 2) 설명 - 사진 -->
+      <div class="process-row reverse">
+        <div class="process-media">
+          <img src="img/product_power.jpg" alt="전력 · 제어 시스템">
+        </div>
+        <div class="process-text">
+          <h4>전력 · 제어 시스템</h4>
+          <p>
+            MCC PANEL, DESK PANEL, PLATFORM 구축을 통해
+            공정 전반의 전력 분배 및 제어를 안정적으로 수행하며,
+            현장 조건에 최적화된 시스템을 제공합니다.
+          </p>
+        </div>
+      </div>
+
+      <!-- 3) 사진 - 설명 -->
+      <div class="process-row">
+        <div class="process-media">
+          <img src="img/product_network.jpg" alt="Network 기술">
+        </div>
+        <div class="process-text">
+          <h4>Network 기술</h4>
+          <p>
+            물류센터, 자동창고, 자동차 의장라인 등
+            대규모 설비 환경에서도 안정적인 통신이 가능하도록
+            산업용 네트워크 설계 및 구축을 수행합니다.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+  <strong>㈜ 조유시스템</strong><br>
+  인천광역시 서구 가정로 37번길 37-22<br>
+  TEL. 032-471-1101 | FAX. 032-462-1102
+</footer>
+
+</body>
+</html>

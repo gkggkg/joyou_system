@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>회사소개 | 조유시스템</title>
+
+  <style>
+    /* ===== 기본 ===== */
+    body{
+      margin:0;
+      font-family:'Segoe UI','Pretendard',sans-serif;
+      color:#222;
+      background:#f5f7fa;
+      padding-top:64px; /* 고정 헤더 보정 */
+    }
+
+    /* ===== Header (index 기준 통일) ===== */
+    header{
+      background:#0b2a4a;
+      color:#fff;
+      padding:0 40px;
+      height:64px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      box-sizing:border-box;
+
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      z-index:1000;
+    }
+
+    header h1{
+      margin:0;
+      font-size:0;
+      line-height:1;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:0;
+    }
+
+    .brand img{
+      width:60px;
+      height:60px;
+      object-fit:contain;
+      transform:translateY(2px);
+      display:block;
+    }
+
+    .brand span{
+      font-size:22px;
+      font-weight:700;
+      line-height:1;
+      display:block;
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+    }
+
+    nav a{
+      color:#fff;
+      margin-left:20px;
+      text-decoration:none;
+      font-size:14px;
+      padding-bottom:6px;
+      display:inline-block;
+    }
+
+    nav a.active{
+      border-bottom:3px solid #fff;
+    }
+
+    /* ===== Banner ===== */
+    .banner{
+      background:
+        linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+        url('img/about_banner.jpg'); /* ✅ 네 배너 이미지 */
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+
+      min-height:65vh;
+      padding:0 40px;
+      color:#fff;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .banner-inner{
+      max-width:1200px;
+      width:100%;
+      margin:0 auto;
+      text-align:center;
+    }
+
+    .banner h2{
+      font-size:44px;
+      margin:0;
+      text-shadow:0 2px 6px rgba(0,0,0,0.4);
+    }
+
+    /* ===== Section ===== */
+    .section{ padding:80px 40px; }
+
+    .section-inner{
+      background:#fff;
+      padding:60px;
+      border-radius:14px;
+      max-width:1200px;
+      margin:0 auto;
+      box-shadow:0 12px 30px rgba(0,0,0,0.08);
+    }
+
+    .section h3{
+      font-size:28px;
+      margin:0 0 40px;
+      color:#0b2a4a;
+      position:relative;
+      padding-bottom:14px;
+    }
+
+    .section h3::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:0;
+      width:56px;
+      height:3px;
+      background:#0b2a4a;
+      border-radius:2px;
+    }
+
+    /* ===== 공통 카드 ===== */
+    .info-card{
+      background:#fff;
+      border-radius:12px;
+      padding:26px 28px;
+      box-shadow:0 8px 24px rgba(0,0,0,0.06);
+      border-left:5px solid #0b2a4a;
+    }
+
+    .info-card h4{
+      margin:0 0 10px;
+      font-size:21px;
+      color:#0b2a4a;
+    }
+
+    .info-card p{
+      margin:0;
+      font-size:15px;
+      line-height:1.85;
+      color:#444;
+    }
+
+    /* ===== 경영 이념 ===== */
+    .philosophy-layout{
+      display:grid;
+      grid-template-columns:1fr 1.2fr;
+      gap:60px;
+      align-items:center;
+    }
+
+    .philosophy-image img{
+      width:100%;
+      max-height:420px;
+      object-fit:cover;
+      border-radius:14px;
+      display:block;
+    }
+
+    .philosophy-list{
+      display:flex;
+      flex-direction:column;
+      gap:22px;
+    }
+
+    /* ===== 인사말 ===== */
+    .greeting-card{
+      background:#ffffff;
+      border-radius:14px;
+      padding:36px 40px;
+      box-shadow:0 10px 28px rgba(0,0,0,0.08);
+      border-left:5px solid #0b2a4a;
+    }
+
+    .greeting-subtitle{
+      font-size:18px;
+      font-weight:700;
+      color:#0b2a4a;
+      margin:0 0 18px;
+      line-height:1.6;
+    }
+
+    .greeting-text{
+      font-size:15px;
+      line-height:1.9;
+      color:#333;
+      margin:0 0 14px;
+    }
+
+    .greeting-sign{
+      margin-top:26px;
+      padding-top:18px;
+      border-top:1px solid #e5e8ef;
+      text-align:right;
+    }
+
+    .greeting-sign .title{
+      font-size:13px;
+      color:#666;
+    }
+
+    .greeting-sign .name{
+      font-size:15px;
+      font-weight:700;
+      color:#0b2a4a;
+    }
+
+    /* ===== 연혁 ===== */
+    .timeline{
+      position:relative;
+      padding-left:56px;
+      max-width:760px;
+      margin-left:40px;
+      display:flex;
+      flex-direction:column;
+      gap:48px;
+    }
+
+    .timeline::before{
+      content:"";
+      position:absolute;
+      left:18px;
+      top:0;
+      width:3px;
+      height:100%;
+      background:rgba(11,42,74,0.22);
+      border-radius:2px;
+    }
+
+    .tl-item{ position:relative; }
+
+    .tl-dot{
+      position:absolute;
+      left:-46px;
+      top:6px;
+      width:18px;
+      height:18px;
+      background:#fff;
+      border:3px solid #0b2a4a;
+      border-radius:50%;
+      box-sizing:border-box;
+    }
+
+    .tl-year{
+      font-size:20px;
+      font-weight:800;
+      color:#0b2a4a;
+      margin-bottom:6px;
+    }
+
+    .tl-text{
+      font-size:15px;
+      line-height:1.8;
+      color:#333;
+    }
+
+    /* ===== 자격증 ===== */
+    .cert-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
+      gap:30px;
+    }
+
+    .cert-card{
+      background:#fff;
+      border:1px solid #e8ecf3;
+      border-radius:14px;
+      padding:18px;
+      text-align:center;
+      transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+    }
+
+    .cert-card:hover{
+      transform:translateY(-3px);
+      box-shadow:0 12px 28px rgba(0,0,0,0.10);
+      border-color:#d9e1ef;
+    }
+
+    .cert-card img{
+      width:100%;
+      max-height:320px;
+      object-fit:contain;
+      background:transparent;
+      border-radius:10px;
+      padding:0;
+      margin:6px 0 14px;
+      display:block;
+    }
+
+    .cert-card p{
+      margin:0;
+      font-size:14px;
+      font-weight:700;
+      color:#24384d;
+      line-height:1.5;
+    }
+
+    /* ===== Footer ===== */
+    footer{
+      background:#111;
+      color:#aaa;
+      padding:40px;
+      font-size:14px;
+    }
+    footer strong{ color:#fff; }
+
+    /* ===== Responsive ===== */
+    @media(max-width:900px){
+      .philosophy-layout{
+        grid-template-columns:1fr;
+        gap:30px;
+      }
+      .timeline{
+        margin-left:0;
+        max-width:100%;
+      }
+    }
+
+    @media(max-width:768px){
+      header{ padding:0 20px; }
+
+      .banner{
+        min-height:45vh;
+        padding:0 20px;
+      }
+      .banner h2{ font-size:32px; }
+
+      .section{ padding:50px 20px; }
+      .section-inner{ padding:30px; }
+      .greeting-card{ padding:26px 24px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1 class="brand">
+    <img src="img/mark.png" alt="조유시스템 로고">
+    <span>조유시스템</span>
+  </h1>
+
+  <nav>
+    <a href="index.html">홈</a>
+    <a href="about.html" class="active">회사소개</a>
+    <a href="business.html">사업분야</a>
+    <a href="tech.html">핵심기술</a>
+    <a href="project.html">주요실적</a>
+    <a href="contact.html">문의</a>
+  </nav>
+</header>
+
+<section class="banner">
+  <div class="banner-inner">
+    <h2>회사소개</h2>
+  </div>
+</section>
+
+<!-- 경영 이념 -->
+<section class="section">
+  <div class="section-inner">
+    <h3>경영 이념</h3>
+
+    <div class="philosophy-layout">
+      <div class="philosophy-image">
+        <img src="img/about_philosophy.jpg" alt="조유시스템 경영이념">
+      </div>
+
+      <div class="philosophy-list">
+        <div class="info-card">
+          <h4>Responsibility</h4>
+          <p>책임을 핵심 가치로 인식하여 고객의 지속 가능한 발전을 위해 노력하겠습니다.</p>
+        </div>
+        <div class="info-card">
+          <h4>Trust</h4>
+          <p>정직과 성실한 자세로 고객과의 신뢰를 가장 최우선으로 생각하겠습니다.</p>
+        </div>
+        <div class="info-card">
+          <h4>Innovation</h4>
+          <p>변화와 혁신을 통해 새로운 기술을 창조하며 경쟁력 향상을 추구하겠습니다.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 인사말 -->
+<section class="section">
+  <div class="section-inner">
+    <h3>인사말</h3>
+
+    <div class="greeting-card">
+      <div class="greeting-subtitle">
+        고객의 현장을 이해하는 기술력,<br>
+        신뢰로 답하는 조유시스템
+      </div>
+
+      <p class="greeting-text">
+        조유시스템은 다년간 축적된 현장 경험과 기술 노하우를 바탕으로
+        공장 자동화, 물류 시스템, 전기·제어 분야에서 설계부터 시공,
+        시운전, 유지보수까지 전 과정을 책임지고 있습니다.
+      </p>
+
+      <p class="greeting-text">
+        단순한 설비 구축을 넘어 고객의 공정이 안정적이고 효율적으로 운영될 수 있도록
+        현장 중심의 기술 지원과 완성도 높은 솔루션을 제공합니다.
+      </p>
+
+      <p class="greeting-text">
+        앞으로도 기본에 충실한 기술력과 성실한 자세로 고객과 함께 성장하는
+        신뢰받는 기업이 되기 위해 끊임없이 노력하겠습니다.
+      </p>
+
+      <div class="greeting-sign">
+        <div class="title">㈜ 조유시스템 대표이사</div>
+        <div class="name">조 동 현</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 연혁 -->
+<section class="section">
+  <div class="section-inner">
+    <h3>연혁</h3>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2017년</div>
+        <div class="tl-text">(주)조유시스템 법인 설립</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2020년 ~ 2021년</div>
+        <div class="tl-text">공사 및 시스템 준비 기간</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2022년</div>
+        <div class="tl-text">화성 모트라스 조립·출하라인 공사 및 시운전 / ISO 9001 인증</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2023년</div>
+        <div class="tl-text">인도네시아 LG에너지솔루션 활성화 물류 13개 라인 공사 및 시운전</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2024년</div>
+        <div class="tl-text">전기공사업 면허 취득 및 주요 프로젝트 수행</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2025년</div>
+        <div class="tl-text">울산 현대 차체 라인 공사 및 시운전 등</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 자격증 -->
+<section class="section">
+  <div class="section-inner">
+    <h3>자격증 획득 현황</h3>
+
+    <div class="cert-grid">
+      <div class="cert-card">
+        <img src="img/cert_iso9001.png" alt="ISO 9001">
+        <p>ISO 9001 품질경영시스템 인증</p>
+      </div>
+      <div class="cert-card">
+        <img src="img/cert_electric.png" alt="전기공사업">
+        <p>전기공사업 등록증</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <strong>㈜ 조유시스템</strong><br>
+  인천광역시 서구 가정로 37번길 37-22<br>
+  TEL. 032-471-1101 | FAX. 032-462-1102
+</footer>
+
+</body>
+</html>

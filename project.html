@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>주요실적 | 조유시스템</title>
+  <style>
+    body{
+      margin:0;
+      font-family:'Segoe UI','Pretendard',sans-serif;
+      background:#f5f7fa;
+      color:#222;
+      padding-top:64px; /* 고정 헤더 보정 */
+    }
+
+    /* ===== Header ===== */
+    header{
+      background:#0b2a4a;
+      color:#fff;
+      padding:0 40px;
+      height:64px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      box-sizing:border-box;
+
+      position:fixed;
+      top:0; left:0;
+      width:100%;
+      z-index:1000;
+    }
+
+    header h1{
+      margin:0;
+      font-size:22px;
+      line-height:1;
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+    }
+
+    nav a,
+    nav a:visited{
+      color:#fff;
+      margin-left:20px;
+      text-decoration:none;
+      font-size:14px;
+      padding-bottom:6px;
+      display:inline-block;
+    }
+
+    nav a.active{
+      border-bottom:3px solid #ffffff;
+    }
+
+    /* ===== Banner (회사소개/사업분야 스타일) ===== */
+    .banner{
+      background:
+        linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+        url('img/project_banner.jpg'); /* ✅ 너가 정해둔 배너 이미지로 파일명만 맞춰줘 */
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+
+      min-height:65vh;
+      padding:0 40px;
+      color:#fff;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+    }
+
+    .banner-inner{
+      max-width:1200px;
+      width:100%;
+      margin:0 auto;
+    }
+
+    .banner h2{
+      font-size:44px;
+      margin:0;
+      text-shadow:0 2px 6px rgba(0,0,0,0.4);
+    }
+
+    /* ===== Section ===== */
+    .section{ padding:80px 40px; }
+
+    .section-inner{
+      background:#ffffff;
+      padding:60px;
+      border-radius:12px;
+      max-width:1200px;
+      margin:0 auto;
+      box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .section h3{
+      font-size:28px;
+      margin:0 0 30px;
+      color:#0b2a4a;
+    }
+
+    .table-wrap{
+      overflow-x:auto;
+      border-radius:10px;
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      min-width:700px;
+      background:#fff;
+    }
+
+    th, td{
+      padding:16px;
+      border-bottom:1px solid #e7eaf0;
+      text-align:left;
+      font-size:15px;
+      line-height:1.6;
+      vertical-align:top;
+      box-sizing:border-box;
+    }
+
+    th{
+      background:#f0f3f7;
+      color:#0b2a4a;
+      font-weight:700;
+      white-space:nowrap;
+    }
+
+    tr:hover{ background:#fafbfe; }
+
+    /* ===== 테이블 내부 스크롤 (헤더 정렬 보정 포함) ===== */
+    .table-scroll thead,
+    .table-scroll tbody tr{
+      display:table;
+      width:100%;
+      table-layout:fixed;  /* ✅ 헤더/바디 열 정렬 고정 */
+    }
+
+    .table-scroll tbody{
+      display:block;
+      max-height:320px;   /* 약 5~6행 */
+      overflow-y:auto;
+    }
+
+    .table-scroll thead{
+      display:table;
+      width:calc(100% - 8px); /* 스크롤바 보정 */
+    }
+
+    /* 열 폭 고정 */
+    .col-client{ width:260px; }
+
+    /* ===== Footer ===== */
+    footer{
+      background:#111;
+      color:#aaa;
+      padding:40px;
+      font-size:14px;
+    }
+    footer strong{ color:#fff; }
+
+    /* ===== Responsive ===== */
+    @media(max-width:768px){
+      header{ padding:0 20px; }
+      .section{ padding:50px 20px; }
+      .section-inner{ padding:30px; }
+
+      .banner{
+        min-height:45vh;
+        padding:0 20px;
+      }
+      .banner h2{ font-size:32px; }
+    }
+     /* ===== 헤더 로고 ===== */
+header h1{
+  margin:0;
+  font-size:0;
+  line-height:1;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:0;
+}
+
+.brand img{
+  width:60px;
+  height:60px;
+  object-fit:contain;
+  transform: translateY(2px);
+  display:block;
+}
+
+.brand span{
+  font-size:22px;
+  font-weight:700;
+  line-height:1;
+  display:block;
+}
+
+
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 class="brand">
+  <img src="img/mark.png" alt="조유시스템 로고">
+  <span>조유시스템</span>
+</h1>
+
+  <nav>
+    <a href="index.html">홈</a>
+    <a href="about.html">회사소개</a>
+    <a href="business.html">사업분야</a>
+    <a href="tech.html">핵심기술</a>
+    <a href="project.html" class="active">주요실적</a>
+    <a href="contact.html">문의</a>
+  </nav>
+</header>
+
+<section class="banner">
+  <div class="banner-inner">
+    <h2>주요실적</h2>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner">
+    <h3>프로젝트 수행 실적</h3>
+
+    <div class="table-wrap">
+      <table class="table-scroll">
+        <thead>
+          <tr>
+            <th class="col-client">고객사</th>
+            <th>프로젝트 내용</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="col-client">이화모듈</td>
+            <td>FRT, RR 샤시 조립, 출하라인</td>
+          </tr>
+          <tr>
+            <td class="col-client">LG에너지 솔루션</td>
+            <td>인도네시아 LG에너지 솔루션 활성화 물류 13개라인</td>
+          </tr>
+          <tr>
+            <td class="col-client">평택모비스</td>
+            <td>자동차 엔진 조립라인</td>
+          </tr>
+          <tr>
+            <td class="col-client">화성기아</td>
+            <td>TK 메인라인</td>
+          </tr>
+          <tr>
+            <td class="col-client">화성기아</td>
+            <td>교육센터(시작실)</td>
+          </tr>
+          <tr>
+            <td class="col-client">현대</td>
+            <td>울산 현대 차체 라인 공사 및 시운전</td>
+          </tr>
+          <tr>
+            <td class="col-client">모비스</td>
+            <td>울산 3모듈 모비스 라인 공사 및 시운전</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <strong>㈜ 조유시스템</strong><br>
+  인천광역시 서구 가정로 37번길 37-22<br>
+  TEL. 032-471-1101 | FAX. 032-462-1102
+</footer>
+
+</body>
+</html>
